@@ -56,6 +56,23 @@
 	};
 	const fetch=({method,url,...opt})=>fetchApi(method)(url,{...opt,headers});
 
+
+处理超时和取消请求
+
+	import {cancelablePromise} from '@huxy/utils';
+	const suspenseConfig={
+	  delay:8000,
+	  timeoutMsg:'请求超时！',
+	  cancelMsg:'请求已取消！',
+	};
+	const handleFetch=data=>{
+	  const {promiseFn,cancelFn}=cancelablePromise(fetch(data));
+	  setTimeout(()=>{
+	    cancelFn({timeout:suspenseConfig.timeoutMsg});
+	  },suspenseConfig.delay);
+	  return promiseFn;
+	};
+
 ### 使用示例
 
 	const Index=props=>{
