@@ -11,6 +11,7 @@ export const fetchUsers=async (params)=>{
 
 export const fetchUserInfo=async (params)=>{
   await sleep();
+  // console.log('fetchUserInfo:请求成功');
   return {
     code:200,
     msg:'success',

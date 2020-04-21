@@ -29,7 +29,11 @@ module.exports={
       'node_modules',
       'doc',
       'dist'
-    ]
+    ],
+    react:{
+      pragma:'React',
+      version:'detect',
+    },
   },
   extends: 'eslint:recommended',
   // extends: ['plugin:prettier/recommended'],

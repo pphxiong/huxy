@@ -18,12 +18,17 @@ const appName=require('../configs/appName');
 const getIPs=require('./getIPs');
 
 // const request=require('request');
-// 
-// const proxy=require('http-proxy-middleware');
+
+const {createProxyMiddleware}=require('http-proxy-middleware');
 
 const app = express();
 
 const compiler = webpack(webpackConfig);
+
+
+const proxyCfg=require('./proxyCfg');
+const {proxyPath,proxyOptions}=proxyCfg;
+app.use(proxyPath,createProxyMiddleware(proxyOptions));
 
 const devMiddleware=webpackDevMiddleware(compiler,{
   contentBase:webpackConfig.output.path,

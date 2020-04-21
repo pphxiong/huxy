@@ -57,7 +57,7 @@
 	const fetch=({method,url,...opt})=>fetchApi(method)(url,{...opt,headers});
 
 
-处理超时和取消请求
+处理超时和取消请求。
 
 	import {cancelablePromise} from '@huxy/utils';
 	const suspenseConfig={
@@ -72,6 +72,8 @@
 	  },suspenseConfig.delay);
 	  return promiseFn;
 	};
+
+可根据自己项目需要，统一处理一些通用功能，如节流防抖、请求时loading、请求后信息提示、返回数据格式化
 
 ### 使用示例
 

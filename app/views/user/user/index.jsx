@@ -5,7 +5,7 @@ import {data} from './config';
 // import {Link} from '@huxy/router';
 import {Link} from '@app/configs';
 
-import Spinner from '@app/components/spinner';
+import Spinner from '@common/components/spinner';
 
 import watermark from '@common/utils/watermark';
 
@@ -38,7 +38,6 @@ const Index=props=>{
   const users=props.users?.data||[];
   const pageRef=useRef();
   useEffect(()=>{
-    console.log(333,pageRef);
     watermark({container:pageRef.current});
   },[]);
   return <div className="page" ref={pageRef} >

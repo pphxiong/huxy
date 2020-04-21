@@ -1,36 +1,40 @@
 import {fetchUser} from './api';
 const router={
-  url:'/dashboard',
+  path:'/dashboard',
   redirect:'/dashboard/app1',
   name:'Dashboard',
   icon:'icon-dashboard',
   children:[
     {
-      url:'/app1',
+      path:'/app1',
       name:'app1',
       icon:'icon-th-list',
       component:()=>import('./app1'),
-      /* resolve:{
-        user:fetchUser,
-      }, */
+      resolve:{
+        users:fetchUser,
+      },
     },
     {
-      url:'/app2',
+      path:'/app2',
       name:'app2',
       icon:'icon-th-list',
       component:()=>import('./app2'),
     },
     {
-      url:'/app3',
+      path:'/app3',
       name:'app3',
       icon:'icon-th-list',
       component:()=>import('./app3'),
       resolve:{
-        user:fetchUser,
+        users1:fetchUser,
+        // user:fetchUser,
+      },
+      loadData:{
+        users1:fetchUser,
       },
     },
     {
-      url:'/app4',
+      path:'/app4',
       name:'admin',
       icon:'icon-th-list',
       component:()=>import('./app4'),

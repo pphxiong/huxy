@@ -3,6 +3,8 @@
 
 @import "./config.less";
 
+@borderShadow:0 0 6px 1px rgba(0,0,0,0.06);
+
 .frame{
   background-color:@appBgColor;
   a{
@@ -22,7 +24,7 @@
     top:0;
     left:0;
     right:0;
-    z-index:2;
+    z-index:10;
     color:@appColor;
   }
   .frame-footer{
@@ -30,9 +32,9 @@
     line-height:@footerHeight;
     position:fixed;
     bottom:0;
-    left:@menuWidth;
+    left:0;//@menuWidth;
     right:0;
-    z-index:1;
+    z-index:2;
     transition:left .3s;
     &.showMenu{
       left:0;
@@ -44,6 +46,8 @@
     margin:0 auto;
     padding-top:@headerHeight;
     padding-bottom:@footerHeight;
+    box-shadow:@borderShadow;
+    z-index:5;
     .frame-container{
       position:relative;
       .frame-aside{
@@ -52,7 +56,7 @@
         left:calc(50% - @maxWidth/2);
         top:@headerHeight;
         bottom:0;
-        z-index:1;
+        z-index:5;
         color:@appColor;
         transition:left .3s;
         &.showMenu{

@@ -11,7 +11,7 @@ import styles from './index.less';
 export const breadcrumb=current=><div className="breadcrumb">
   <ul>
     {/* <li><Link path="/">home</Link></li> */}
-    {current.filter(v=>v.name).map(v=>v.url!=='/'&&<li key={v.url}><Link path={v.url}>{v.name}</Link></li>)}
+    {current.filter(v=>v.name).map(v=>v.path!=='/'&&<li key={v.path}><Link path={v.path}>{v.name}</Link></li>)}
   </ul>
 </div>;
 

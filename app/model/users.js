@@ -1,4 +1,4 @@
-import avatar from '@common/images/usr.jpg';
+import avatar from '@app/assets/images/usr.jpg';
 const navDrop=[
   {
     name:'Profile',

@@ -42,6 +42,28 @@
 
   --footerBgColor:#fff;
 }
+.frame.dark2{
+  --maxWidth:1200px;
+  --menuWidth:220px;
+  --headerHeight:50px;
+  --footerHeight:45px;
+  --collapseMenuWidth:0;
+
+
+  --bannerBgColor:#21364a;
+  --navBgColor:#21364a;
+  --menuBgColor:#2d4054;
+  --deepMenuBgColor:hsla(0,0%,0%,.1);
+
+  --appColor:#fff;
+  --linkColor:#eee;
+  --linkHoverColor:#00b4cf;
+  --linkActiveColor:#00b4cf;
+
+  --appBgColor:#f3f3f3;
+
+  --footerBgColor:#fff;
+}
 
 .frame.light{
   --maxWidth:100%;

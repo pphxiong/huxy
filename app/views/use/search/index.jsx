@@ -1,8 +1,8 @@
 import React,{useEffect,useState,Suspense} from 'react';
 import useSearch from '@common/use/useSearch';
-import Spinner from '@app/components/spinner';
+import Spinner from '@common/components/spinner';
 import {fetchList} from './api';
-import {Link} from '@huxy/router';
+import {Link} from '@app/configs';
 
 import './index.less';
 

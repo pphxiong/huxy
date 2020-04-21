@@ -4,7 +4,6 @@ import useRouter,{Link} from '@router';
 export {useRouter,Link};
 
 const browserRouter=!process.env.isDev;
-const idKey='url';
 const title='项目管理平台';
 const theme='dark';
 let whiteList=['/dashboard/app4'/* ,'/use/style' */];
@@ -20,7 +19,6 @@ const afterRender=output=>{
 
 export default {
   browserRouter,
-  idKey,
   title,
   theme,
   beforeRender,

@@ -23,6 +23,10 @@ const themeList=[
     key:'dark1',
   },
   {
+    name:'深暗色2',
+    key:'dark2',
+  },
+  {
     name:'浅亮色1',
     key:'light1',
   },
@@ -103,7 +107,7 @@ const Header=props=>{
           </ul>
         </li>
         {
-          menu.map(v=><li key={v.url}><Link path={v.url} className={v.active?'active':''}>{v.name}</Link></li>)
+          menu.map(v=><li key={v.path}><Link path={v.path} className={v.active?'active':''}>{v.name}</Link></li>)
         }
       </ul>
       <ul className="nav-right">

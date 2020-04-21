@@ -2,7 +2,7 @@ import React,{Suspense} from 'react';
 
 import './index.less';
 
-import Spinner from '@app/components/spinner';
+import Spinner from '@common/components/spinner';
 
 import {fetchApp1,fetchApp2} from './api';
 
@@ -17,6 +17,8 @@ const Test1=()=>{
 
 const Index=props=>{
   const user=props.store.getState('user');
+  const users=props.store.getState('users');
+  // console.log(12,user,users,props);
   return <div className="page">
     <h1>{user?.data.name}</h1>
     <p>{props.params?.app2Pass}</p>

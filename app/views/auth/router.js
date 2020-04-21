@@ -1,6 +1,6 @@
 const router=[
   {
-    url:'/auth',
+    path:'/auth',
     name:'auth',
     icon:'icon-id-card',
     component:()=>import('./'),

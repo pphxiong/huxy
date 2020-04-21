@@ -1,6 +1,7 @@
 import sleep from '@common/utils/sleep';
 export const fetchUser=async ()=>{
   await sleep();
+  // console.log('fetchUser:请求成功');
   return {
     code:200,
     msg:'success',

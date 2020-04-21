@@ -21,7 +21,7 @@ const initPath='/dashboard';
 
 const routers=[
   {
-    url:'/',
+    path:'/',
     redirect:initPath,
     component:()=>import('../layout/frame'),
     resolve:{
@@ -32,26 +32,26 @@ const routers=[
     children:childRouters,
   },
   {
-    url:'/sign',
+    path:'/sign',
     name:'登录',
     title:'登录',
     component:<div>user</div>,
     hideMenu:true,
     children:[
       {
-        url:'/signin',
+        path:'/signin',
         name:'登录',
         component:<h1>登录</h1>,
       },
       {
-        url:'/signup',
+        path:'/signup',
         name:'注册',
         component:()=><h1>注册</h1>,
       },
     ],
   },
   {
-    url:'/404',
+    path:'/404',
     name:'404',
     component:import('../views/404'),
     hideMenu:true,

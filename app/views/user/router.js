@@ -1,7 +1,7 @@
 import {fetchUsers,fetchUserSrc,fetchUserSrcList} from '@app/api';
 const router=[
   {
-    url:'/user',
+    path:'/user',
     name:'用户管理',
     icon:'icon-id-card',
     component:()=>import('./user'),
@@ -10,20 +10,20 @@ const router=[
     },
   },
   {
-    url:'/user/:id',
+    path:'/user/:id',
     name:'src',
     icon:'icon-th-list',
     component:()=>import('./user/src'),
-    resolve:{
+    loadData:{
       src:fetchUserSrc,
     },
   },
   {
-    url:'/user/:id/:type',
+    path:'/user/:id/:type',
     name:'srcList',
     icon:'icon-th-list',
     component:()=>import('./user/srcList'),
-    resolve:{
+    loadData:{
       srcList:fetchUserSrcList,
     },
   },

@@ -23,7 +23,7 @@ const Menu=props=>{
       const active=v.active?'active':'';
       if(hasChildren){
         return <li key={v.name} onClick={e=>toggle(e,v)}>
-          <Link path={v.url} className={active} preventDefault>
+          <Link path={v.path} className={active} preventDefault>
             {v.icon&&<i className={v.icon} />}
             <span className="has-right-icon">{v.name}</span>
             <i className={`ivu-angle ${v.open?'top':'bottom'}`} />
@@ -32,7 +32,7 @@ const Menu=props=>{
         </li>;
       }
       return <li key={v.name}>
-        <Link path={v.url} stopPropagation className={active}>
+        <Link path={v.path} stopPropagation className={active}>
           {v.icon&&<i className={v.icon} />}
           <span>{v.name}</span>
         </Link>

@@ -1,11 +1,11 @@
 const router={
-  url:'/functional',
+  path:'/functional',
   redirect:'/functional/curry',
   name:'functional',
   icon:'icon-life-bouy',
   children:[
     {
-      url:'/curry',
+      path:'/curry',
       name:'curry',
       icon:'icon-th-list',
       component:()=>import('./curry'),

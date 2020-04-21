@@ -5,7 +5,7 @@ import {data} from './config';
 // import {Link} from '@huxy/router';
 import {Link} from '@app/configs';
 
-import Spinner from '@app/components/spinner';
+import Spinner from '@common/components/spinner';
 
 import './index.less';
 

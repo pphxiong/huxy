@@ -1,43 +1,43 @@
 const router={
-  url:'/use',
+  path:'/use',
   redirect:'/use/fetch',
   name:'use',
   icon:'icon-sitemap',
   children:[
     {
-      url:'/fetch',
+      path:'/fetch',
       name:'useFetch',
       icon:'icon-th-list',
       component:()=>import('./fetch'),
     },
     {
-      url:'/search',
+      path:'/search',
       name:'useSearch',
       icon:'icon-th-list',
       component:()=>import('./search'),
     },
     {
-      url:'/viewSize',
+      path:'/viewSize',
       name:'useViewSize',
       icon:'icon-th-list',
       component:()=>import('./viewSize'),
     },
 
     {
-      url:'/eleResize',
+      path:'/eleResize',
       name:'useEleSize',
       icon:'icon-th-list',
       component:()=>import('./viewSize/eleResize'),
     },
     {
-      url:'/style',
+      path:'/style',
       name:'useStyle',
       icon:'icon-th-list',
       // denied:true,
       component:()=>import('./style'),
     },
     {
-      url:'/message',
+      path:'/message',
       name:'useMessage',
       icon:'icon-th-list',
       component:()=>import('./message'),

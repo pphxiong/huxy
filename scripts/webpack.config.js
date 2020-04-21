@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-// const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 const configs=require('../configs');
 const appName=require('../configs/appName');
@@ -55,17 +55,17 @@ const plugins=[
   new webpack.optimize.ModuleConcatenationPlugin(),
   // new BundleAnalyzerPlugin(),
   /* new ModuleFederationPlugin({
-    name:'app_two',
-    library:{ type:'global',name:'app_a'},
-    // filename:'remoteEntry.js',
+    name:'demo1',
+    library:{ type:'var',name:'app_a'},
+    filename:'remoteEntry.js',
     remotes:{
       app_one:'app_one',
       app_three:'app_three',
     },
     exposes:{
-      AppContainer:'./src/App',
+      Demo:'../demo',
     },
-    shared:['react','react-dom','relay-runtime'],
+    shared:['react','react-dom'],
   }), */
 ];
 
@@ -127,50 +127,55 @@ const rules=[
 
 module.exports={
   context:app,
+  experiments: {
+    asset: true,
+  },
   entry:entry,
   output:{
     path:path.resolve(app,configs.BUILD_DIR),
     publicPath:configs.DEV_ROOT_DIR,
     filename:'js/[name]_[hash:8].js',
     chunkFilename:'js/[name]_[chunkhash:8].chunk.js',
+    // assetModuleFilename: 'assets/[hash][ext]',
     // library:`${appName}App`,
     // libraryTarget:'umd',
   },
   optimization:{
     minimize:true,
     concatenateModules:true,
-    occurrenceOrder:true,
 
     usedExports: true,
     sideEffects: true,
 
     splitChunks:{
       chunks:'all',//'async','initial'
-      minSize:0,
-      /* minSize:{
-        javascript:30000,
-        style:30000,
-      }, */
+      // minSize:0,
+      minSize:{
+        javascript:8000,
+        style:8000,
+      },
       minChunks:2,
-      maxInitialRequests:5,
+      maxInitialRequests:10,
+      maxAsyncRequests:10,
+      // automaticNameDelimiter: '~',
       cacheGroups:{
         commons:{
           // chunks:'initial',
           // minSize:30000,
-          name:'commons',
+          idHint:'commons',
           test:app,
           priority: 5,
           reuseExistingChunk:true,
         },
-        vendors:{
+        defaultVendors:{
           // chunks:'initial',
-          name:'vendors',
+          idHint:'vendors',
           test:/[\\/]node_modules[\\/]/,
           enforce:true,
           priority:10,
         },
         react:{
-          name:'react',
+          idHint:'react',
           test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
           enforce:true,
           priority:15,
@@ -178,7 +183,7 @@ module.exports={
       },
     },
     // runtimeChunk:true,
-    moduleIds:'hashed',
+    moduleIds:'deterministic',
     chunkIds:'named',
   },
   resolve:{
@@ -188,7 +193,8 @@ module.exports={
     ],
     alias:{
       '@app':app,
-      '@common':path.resolve(__dirname, '../commons'),
+      // '@common':path.resolve(__dirname, '../commons'),
+      '@common':path.resolve(__dirname, '../playground/src'),
       '@utils':path.resolve(app, 'utils'),
       '@router':path.resolve(__dirname, '../playground/src/router'),
     },

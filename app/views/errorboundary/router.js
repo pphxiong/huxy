@@ -1,6 +1,6 @@
 const router=[
   {
-    url:'/errorBoundary',
+    path:'/errorBoundary',
     name:'errorBoundary',
     icon:'icon-deny',
     component:()=>import('./'),
